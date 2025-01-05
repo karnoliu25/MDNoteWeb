@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+/* title区域 */
+.titleBar {
+  height: 60px;
+  border: 1px solid #000;
+}
+/* 内容区 */
+.content {
+  display: flex;
+  flex-grow: 1;
+}
+/* 内容区 - 侧边栏 */
+.asideBar {
+  width: 200px;
+  border: 1px solid #123;
+}
+/* 内容区 - 输入与预览 */
+.contentDisplay {
+  flex-grow: 1;
+  background-color: aqua;
+  padding: 5px 10px;
+  border: 1px solid #555;
+}
+/* 信息区 */
+.authorInfo {
+  height: 30px;
+}
