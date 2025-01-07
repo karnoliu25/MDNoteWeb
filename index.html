@@ -6,14 +6,21 @@
     <title>MarkDown-笔记</title>
     <link rel="stylesheet" href="style.css" />
     <script src="asset/Vue2_dev.js"></script>
+    <script src="asset/Marked.js"></script>
   </head>
   <body>
     <div id="container">
       <div class="titleBar">title</div>
       <div class="content">
         <div class="asideBar">aside</div>
-        <div class="inputArea contentDisplay">inputArea</div>
-        <div class="previewArea contentDisplay">previewArea</div>
+        <div class="inputArea contentDisplay">
+          <textarea
+            name="userContent"
+            id="userContent"
+            v-model="content"
+          ></textarea>
+        </div>
+        <div class="previewArea contentDisplay" v-html="notePreview"></div>
       </div>
       <div class="authorInfo">authorInfo</div>
     </div>

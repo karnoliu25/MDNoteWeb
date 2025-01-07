@@ -2,7 +2,12 @@ const vm = new Vue({
   el: "#container",
   data() {
     return {
-      content: "test",
+      content: "",
     };
+  },
+  computed: {
+    notePreview() {
+      return marked.parse(this.content);
+    },
   },
 });
