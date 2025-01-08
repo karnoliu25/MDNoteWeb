@@ -16,8 +16,10 @@
       <div class="content">
         <!-- 侧边栏 -->
         <div class="asideBar">
-          <div class="addBtn">新增笔记</div>
-          <div class="noteList" v-for="note in notes">{{note.title}}</div>
+          <div class="addBtn" @click="addNote">新增笔记</div>
+          <div class="noteList" v-for="note in notes" @click="selected(note)">
+            {{note.title}}
+          </div>
         </div>
         <!-- 输入区 -->
         <div class="inputArea contentDisplay">
@@ -30,7 +32,7 @@
             />
             <div class="controlBtn">
               <!-- 删除 -->
-              <i class="iconfont">&#xe601;</i>
+              <i class="iconfont" @click="deleteNote">&#xe601;</i>
               <!-- 保存 -->
               <i class="iconfont" @click="save">&#xe639;</i>
             </div>

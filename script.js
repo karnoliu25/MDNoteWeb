@@ -19,12 +19,33 @@ const vm = new Vue({
     save() {
       const note = {
         id: Date.now(),
-        title: this.title,
+        title: this.title || "未命名笔记",
         content: this.content,
       };
       this.notes.push(note);
       localStorage.setItem("notes", JSON.stringify(this.notes));
-      console.log(`test`);
+    },
+    // 选中
+    selected(note) {
+      this.selectedId = note.id;
+      this.content = note.content;
+      this.title = note.title;
+    },
+    // 新增
+    addNote() {
+      this.title = "";
+      this.content = "";
+    },
+    // 删除
+    deleteNote() {
+      if (this.selectedId && confirm("确定删除笔记吗？")) {
+        const arr = this.notes.find((note) => note.id === this.selectedId);
+        const index = this.notes.indexOf(arr);
+        if (index !== -1) {
+          this.notes.splice(index, 1);
+          localStorage.setItem("notes", JSON.stringify(this.notes));
+        }
+      }
     },
   },
 });
