@@ -13,6 +13,9 @@ const vm = new Vue({
     preview() {
       return marked.parse(this.content);
     },
+    selectedNote() {
+      return this.notes.find((note) => note.id === this.selectedId);
+    },
   },
   methods: {
     // 保存
@@ -33,7 +36,7 @@ const vm = new Vue({
     },
     // 新增
     addNote() {
-      this.title = "";
+      this.title = "未命名笔记";
       this.content = "";
     },
     // 删除
