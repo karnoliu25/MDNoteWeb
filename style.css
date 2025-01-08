@@ -46,12 +46,21 @@
   width: 10vw;
   border: 1px solid #123;
 }
-.asideBar .addBtn {
+.asideBar .addBtn,
+.noteList {
   border: 1px solid #124;
   padding-left: 10px;
   height: 50px;
   line-height: 50px;
   cursor: pointer;
+}
+.noteList {
+  padding-top: 10px;
+  word-wrap: break-word;
+  height: 70px;
+  line-height: 20px;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 /* 内容区 - 输入与预览 */
 .contentDisplay {

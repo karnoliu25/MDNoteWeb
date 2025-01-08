@@ -17,14 +17,22 @@
         <!-- 侧边栏 -->
         <div class="asideBar">
           <div class="addBtn">新增笔记</div>
-          <div class="noteList"></div>
+          <div class="noteList" v-for="note in notes">{{note.title}}</div>
         </div>
         <!-- 输入区 -->
         <div class="inputArea contentDisplay">
           <div class="controlBar">
-            <input type="text" class="noteTitle" placeholder="请输入标题" />
+            <input
+              type="text"
+              class="noteTitle"
+              placeholder="请输入标题"
+              v-model="title"
+            />
             <div class="controlBtn">
-              <i class="iconfont">&#xe601;</i> <i class="iconfont">&#xe639;</i>
+              <!-- 删除 -->
+              <i class="iconfont">&#xe601;</i>
+              <!-- 保存 -->
+              <i class="iconfont" @click="save">&#xe639;</i>
             </div>
           </div>
           <textarea
@@ -34,7 +42,7 @@
           ></textarea>
         </div>
         <!-- 预览区 -->
-        <div class="previewArea contentDisplay" v-html="notePreview"></div>
+        <div class="previewArea contentDisplay" v-html="preview"></div>
       </div>
       <!-- 信息区 -->
       <div class="authorInfo">authorInfo</div>
